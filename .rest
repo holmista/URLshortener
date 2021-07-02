@@ -1,0 +1,6 @@
+POST    http://localhost:5000/shortify
+Content-Type: application/json
+
+{
+    "url":"https://www.youtube.com/watch?v=SLpUKAGnm-g"
+}
