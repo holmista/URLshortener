@@ -20,7 +20,7 @@ server.post('/shortify', async (req, res)=>{
     try{
         let doc = await URL.findOne({fullurl:req.body.url})
         if(doc){
-            res.send(`shortened version already exists localhost:5000/${doc.shorturl}`)
+            res.send(`shortened version already exists https://url-shorteneru.herokuapp.com/${doc.shorturl}`)
         }else{
             let doc = await URL.create({fullurl:req.body.url})
             res.send(`localhost:5000/${doc.shorturl}`)
