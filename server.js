@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const URL = require('./schema')
 require('dotenv').config()
 const server = express()
-const port = 5000 || process.env.PORT
+const port = process.env.PORT || 5000
 const mongoDbURI = process.env.MONGO_DB_URI
 console.log(process.env.MONGO_DB_URI)
 mongoose.connect(mongoDbURI,{ useNewUrlParser: true,useUnifiedTopology: true }, ()=>{console.log('connected')})
