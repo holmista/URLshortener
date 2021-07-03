@@ -32,7 +32,6 @@ server.post('/shortify', async (req, res)=>{
 server.get('/:shorturl', async (req, res)=>{
     try{
         let doc = await URL.findOne({shorturl:req.params.shorturl})
-        console.log(doc.count)
         if(doc){
             await URL.updateOne({shorturl:req.params.shorturl}, {count:doc.count+1})
             res.redirect(doc.fullurl)
