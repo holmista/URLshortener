@@ -10,6 +10,11 @@ mongoose.connect(mongoDbURI,{ useNewUrlParser: true,useUnifiedTopology: true }, 
 
 
 server.use(express.json())
+
+server.get('/', (req, res)=>{
+    res.send('home')
+})
+
 server.post('/shortify', async (req, res)=>{
     try{
         let doc = await URL.findOne({fullurl:req.body.url})
