@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require("mongoose")
+const cors = require('cors')
 const URL = require('./schema')
 require('dotenv').config()
 const server = express()
@@ -8,7 +9,7 @@ const mongoDbURI = process.env.MONGO_DB_URI
 console.log(process.env.MONGO_DB_URI)
 mongoose.connect(mongoDbURI,{ useNewUrlParser: true,useUnifiedTopology: true }, ()=>{console.log('connected')})
 
-
+server.use(cors())
 server.use(express.json())
 
 server.get('/', (req, res)=>{
