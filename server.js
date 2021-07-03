@@ -1,9 +1,12 @@
 const express = require('express')
 const mongoose = require("mongoose")
 const URL = require('./schema')
+require('dotenv').config()
 const server = express()
-const port = 5000 || process.env.port
-mongoose.connect("mongodb+srv://tornike:Sai123&@rai@cluster0.ro4dz.mongodb.net/data?retryWrites=true&w=majority",{ useNewUrlParser: true,useUnifiedTopology: true }, ()=>{console.log('connected')})
+const port = 5000 || process.env.PORT
+const mongoDbURI = process.env.MONGO_DB_URI
+console.log(process.env.MONGO_DB_URI)
+mongoose.connect(mongoDbURI,{ useNewUrlParser: true,useUnifiedTopology: true }, ()=>{console.log('connected')})
 
 
 server.use(express.json())
