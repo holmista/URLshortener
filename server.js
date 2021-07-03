@@ -11,9 +11,9 @@ mongoose.connect(mongoDbURI,{ useNewUrlParser: true,useUnifiedTopology: true }, 
 
 server.use(cors())
 server.use(express.json())
-
+server.set('view engine', 'ejs')
 server.get('/', (req, res)=>{
-    res.send('home')
+    res.render('app')
 })
 
 server.post('/shortify', async (req, res)=>{
